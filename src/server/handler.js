@@ -1,6 +1,6 @@
 const predictClassification = require('../services/inferenceService');
 const crypto = require('crypto');
-
+const storeData = require('../services/storeData');
 
 
 async function postPredictHandler(request, h) {
@@ -29,23 +29,4 @@ async function postPredictHandler(request, h) {
   return response;
 }
 
-const getHistoriesHandler = async (request, h) => {
-  try {
-      const histories = await getHistoriesFromFirestore();
-      return {
-          status: 'success',
-          data: histories
-      };
-  } catch (error) {
-    return {
-      status: 'fail',
-      message: 'Failed to retrieve prediction histories: ' + error.message
-    };  
-  }
-};
-
-
-module.exports = {
-  getHistoriesHandler,
-  postPredictHandler
-};
+module.exports = postPredictHandler; 
