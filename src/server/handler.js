@@ -1,8 +1,6 @@
 const predictClassification = require('../services/inferenceService');
 const crypto = require('crypto');
-//const { getHistoriesFromFirestore, storeData } = require('../services/storeData'); // Import getHistoriesFromFirestore
 
-// Your other code remains unchanged
 
 
 async function postPredictHandler(request, h) {
